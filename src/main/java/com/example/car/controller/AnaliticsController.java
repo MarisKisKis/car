@@ -27,12 +27,12 @@ public class AnaliticsController {
     }
 
     @GetMapping
-    public void getAnalitics(@RequestParam int usersCount, @RequestParam LocalDateTime start1,
+    public void getAnalitics(@RequestParam long usersCount, @RequestParam LocalDateTime start1,
                              @RequestParam LocalDateTime end1, @RequestParam String uuid,
                              @RequestParam LocalDateTime start2,
                              @RequestParam LocalDateTime end2){
-        List<User> task1 =  analiticsService.getTopMoneyUsers(usersCount);
+        List<User> topUsers =  analiticsService.getTopMoneyUsers(usersCount);
         Map<String, Integer> countNew = analiticsService.getNewUsersByCountry(start1, end1);
-        Map<Long, LocalDateTime> activityStat =  analiticsService.getActivityByUser(uuid, start2, end2);
+        Map<Long, LocalDateTime> activityStats =  analiticsService.getActivityByUser(uuid, start2, end2);
     }
 }
